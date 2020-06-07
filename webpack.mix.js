@@ -16,3 +16,5 @@ mix.js('resources/js/app.js', 'public/js')
     .copyDirectory('resources/static/images','public/images')
     .version()
     .sourceMaps();
+
+mix.browserSync('127.0.0.1:8000');

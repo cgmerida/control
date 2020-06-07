@@ -33,6 +33,12 @@ table {
     position: relative;
     clear: both;
 
+    .dt-buttons {
+        button.btn.btn-secondary.btn-outline-primary {
+            background-color: transparent!important;
+        }
+    }
+
     .dataTables_length {
         color: $default-dark;
         float: left;
