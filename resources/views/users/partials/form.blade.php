@@ -5,7 +5,7 @@
 
 			{!! Form::myInput('text', 'lastname', 'Apellido') !!}
 
-			{!! Form::myInput('text', 'username', 'Usuario') !!}
+			{!! Form::myInput('number', 'tel', 'Telefono') !!}
 	
 			{!! Form::myInput('email', 'email', 'Correo') !!}
 	

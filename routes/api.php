@@ -30,3 +30,11 @@ Route::get('roles', function () {
         ->rawColumns(['actions'])
         ->toJson();
 });
+
+
+Route::get('families', function () {
+    return datatables(App\Family::all())
+        ->addColumn('actions', 'families.partials.actions')
+        ->rawColumns(['actions'])
+        ->toJson();
+});

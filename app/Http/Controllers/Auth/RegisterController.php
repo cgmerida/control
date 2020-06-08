@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use Caffeinated\Shinobi\Models\Role;
+
 class RegisterController extends Controller
 {
     /*
@@ -29,6 +31,11 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+
+    // protected function redirectTo($request)
+    // {
+    //     return route('admin');
+    // }
 
     /**
      * Create a new controller instance.
@@ -59,10 +66,26 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        // return User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        // ]);
+
+        $role = Role::where('slug', 'user')->first();
+
+        $user = new User();
+        $user->name = $data['name'];
+        $user->lastname = $data['lastname'];
+        $user->tel = $data['tel'];
+        $user->email = $data['email'];
+        $user->password = $data['password'];
+        $user->save();
+
+
+        $user->roles()->save($role);
+
+        return $user;
+
     }
 }

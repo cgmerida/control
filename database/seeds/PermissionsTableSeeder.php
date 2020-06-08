@@ -43,7 +43,9 @@ class PermissionsTableSeeder extends Seeder
             'description' => 'Permite eliminar usuarios en el sistema'
         ]);
 
+
         // PERMISOS DE ROLES
+        
         Permission::create([
             'name' => 'Listar Roles',
             'slug' => 'roles.index',
@@ -72,6 +74,40 @@ class PermissionsTableSeeder extends Seeder
             'name' => 'Eliminar Rol',
             'slug' => 'roles.destroy',
             'description' => 'Permite eliminar roles en el sistema'
+        ]);
+
+
+
+        // PERMISOS PARA EDITAR PERSONAS
+
+        Permission::create([
+            'name' => 'Listar Personas',
+            'slug' => 'families.index',
+            'description' => 'Permite listar todos los personas del sistema'
+        ]);
+        
+        Permission::create([
+            'name' => 'Crear Personas',
+            'slug' => 'families.create',
+            'description' => 'Permite crear personas en el sistema'
+        ]);
+        
+        Permission::create([
+            'name' => 'Ver Persona',
+            'slug' => 'families.show',
+            'description' => 'Permite ver la información de un usuario'
+        ]);
+        
+        Permission::create([
+            'name' => 'Editar Persona',
+            'slug' => 'families.edit',
+            'description' => 'Permite editar personas en el sistema'
+        ]);
+        
+        Permission::create([
+            'name' => 'Eliminar Persona',
+            'slug' => 'families.destroy',
+            'description' => 'Permite eliminar personas en el sistema'
         ]);
     }
 }

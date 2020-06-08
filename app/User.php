@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'lastname', 'email', 'username', 'password',
+        'name', 'lastname', 'email', 'tel', 'password',
     ];
 
     /**
@@ -53,8 +53,8 @@ class User extends Authenticatable
         $commun = [
             'name' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
+            'tel' => 'required|numeric|regex:/^[0-9]{8}$/',
             'email' => "required|string|email|max:255|unique:users,email,$id",
-            'username' => "required|string|max:255|unique:users,username,$id",
             'password' => 'nullable|confirmed',
         ];
 
@@ -64,7 +64,6 @@ class User extends Authenticatable
         
         return array_merge($commun, [
             'email'    => 'required|email|max:255|unique:users',
-            'username' => 'required|string|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
     }

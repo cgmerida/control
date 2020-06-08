@@ -17,8 +17,8 @@ class UsersTableSeeder extends Seeder
         $user = new User();
         $user->name = 'Admin';
         $user->lastname = 'Pruebas';
-        $user->email = 'test@example.com';
-        $user->username = 'test';
+        $user->tel = 59303056;
+        $user->email = 'admin@admin.com';
         $user->password = '123456';
         $user->save();
 
@@ -28,6 +28,14 @@ class UsersTableSeeder extends Seeder
             'description' => 'Usuario administrador',
             'special' => 'all-access'
         ]);
+
+        $role = Role::create([
+            'name' => 'Usuario',
+            'slug' => 'user',
+            'description' => 'Usuario Normal'
+        ]);
+
+        $role->permissions()->sync([11, 12, 13, 14, 15]);
 
         $user->roles()->attach(1);
     }

@@ -28,3 +28,15 @@
     </a>
 </li>
 @endcan
+
+
+{{-- @can('families.index') --}}
+<li class="nav-item">
+    <a class='sidebar-link' href="{{ route('families.index') }}">
+        <span class="icon-holder">
+            <i class="c-blue-800 ti-search"></i>
+        </span>
+        <span class="title">Buscar</span>
+    </a>
+</li>
+{{-- @endcan --}}
