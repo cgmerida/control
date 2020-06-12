@@ -17,24 +17,28 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-Route::get('users', function () {
-    return datatables(App\User::latest('updated_at')->get())
-        ->addColumn('actions', 'users.partials.actions')
-        ->rawColumns(['actions'])
-        ->toJson();
-});
-
-Route::get('roles', function () {
-    return datatables(Caffeinated\Shinobi\Models\Role::all())
-        ->addColumn('actions', 'roles.partials.actions')
-        ->rawColumns(['actions'])
-        ->toJson();
-});
+Route::group(['middleware' => ['auth']], function () {
 
 
-Route::get('families', function () {
-    return datatables(App\Family::all())
-        ->addColumn('actions', 'families.partials.actions')
-        ->rawColumns(['actions'])
-        ->toJson();
+    Route::get('users', function () {
+        return datatables(App\User::latest('updated_at')->get())
+            ->addColumn('actions', 'users.partials.actions')
+            ->rawColumns(['actions'])
+            ->toJson();
+    });
+
+    Route::get('roles', function () {
+        return datatables(Caffeinated\Shinobi\Models\Role::all())
+            ->addColumn('actions', 'roles.partials.actions')
+            ->rawColumns(['actions'])
+            ->toJson();
+    });
+
+
+    Route::get('families', function () {
+        return datatables(App\Family::all())
+            ->addColumn('actions', 'families.partials.actions')
+            ->rawColumns(['actions'])
+            ->toJson();
+    });
 });
