@@ -28,7 +28,8 @@
 
 			{!! Form::myInput('string', 'contador_luz', 'No. Contador de Luz') !!}
 
-			{!! Form::mySelect('despensa', '¿Recibió Despensa?', ['No', 'Si']) !!}
+			{!! Form::mySelect('despensa', '¿Recibió Despensa?', [0 => 'No', 1 => 'Si'],
+			($family->despensa=="Si" ? 1 : 0)) !!}
 
 			{!! Form::myInput('hidden', 'lat') !!}
 
