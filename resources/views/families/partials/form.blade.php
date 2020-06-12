@@ -10,15 +10,16 @@
 			{!! Form::myInput('text', 'segundo_apellido', 'Segundo Apellido') !!}
 
 			{!! Form::myInput('number', 'integrantes', 'Integrantes de la casa') !!}
-	
-			{!! Form::mySelect('estado_civil', 'Estado Civil', ['Casado/a' => 'Casado/a', 'Divorciado/a' => 'Divorciado/a', 'Soltero/a' => 'Soltero/a', 'Separado/a' => 'Separado/a', 'Viudo/a' => 'Viudo/a']) !!}
-	
+
+			{!! Form::mySelect('estado_civil', 'Estado Civil', ['Casado/a' => 'Casado/a', 'Divorciado/a' =>
+			'Divorciado/a', 'Soltero/a' => 'Soltero/a', 'Separado/a' => 'Separado/a', 'Viudo/a' => 'Viudo/a']) !!}
+
 			{!! Form::myInput('number', 'dpi', 'DPI') !!}
 
 			{!! Form::myInput('number', 'zona', 'Zona') !!}
 
 			{!! Form::myInput('text', 'colonia', 'Colonia') !!}
-	
+
 			{!! Form::myInput('text', 'direccion', 'Direcciòn') !!}
 
 			{!! Form::myInput('number', 'telefono', 'Telefono') !!}
@@ -26,6 +27,8 @@
 			{!! Form::myInput('string', 'contador_agua', 'No. Contador de Agua') !!}
 
 			{!! Form::myInput('string', 'contador_luz', 'No. Contador de Luz') !!}
+
+			{!! Form::mySelect('despensa', '¿Recibió Despensa?', ['No', 'Si']) !!}
 
 			{!! Form::myInput('hidden', 'lat') !!}
 
@@ -36,9 +39,9 @@
 			<button class="btn btn-info mb-3" id="btn-map" onclick="buscarPosicion()" type="button">
 				Guardar Ubicación Actual
 			</button>
-			
+
 			<div id="map"></div>
-			
-		</div>  
+
+		</div>
 	</div>
 </div>

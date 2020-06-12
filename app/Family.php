@@ -12,7 +12,7 @@ class Family extends Model
         'primer_nombre', 'segundo_nombre', 'primer_apellido', 'segundo_apellido',
         'integrantes', 'estado_civil', 'dpi', 'direccion', 'zona', 'colonia',
         'telefono', 'imagen', 'lat', 'lon', 'contador_agua', 'contador_luz',
-        'user_id',
+        'despensa', 'user_id',
     ];
 
 
@@ -25,9 +25,9 @@ class Family extends Model
     {
         return [
             'primer_nombre' => 'required|string|max:255',
-            'segundo_nombre' => 'string|max:255',
+            'segundo_nombre' => 'nullable|string|max:255',
             'primer_apellido' => 'required|string|max:255',
-            'segundo_apellido' => 'string|max:255',
+            'segundo_apellido' => 'nullable|string|max:255',
             'integrantes' => 'required|numeric|min:0',
             'estado_civil' => [
                 'required',
@@ -38,12 +38,23 @@ class Family extends Model
             'zona' => 'required|numeric',
             'colonia' => 'required|string|max:255',
             'telefono' => 'required|numeric|regex:/^[0-9]{8}$/',
-            'imagen' => 'string|max:255',
             'lat' => 'nullable|numeric',
             'lon' => 'nullable|numeric',
+            'despensa' => 'boolean',
             'contador_agua' => 'nullable|string',
             'contador_luz' => 'nullable|string'
         ];
+    }
+
+
+
+    public function getDespensaAttribute($despensa)
+    {
+        if ($despensa) {
+            return "Si";
+        } else {
+            return "No";
+        }
     }
 
 

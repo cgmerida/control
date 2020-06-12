@@ -35,7 +35,7 @@ class UsersTableSeeder extends Seeder
             'description' => 'Usuario Normal'
         ]);
 
-        $role->permissions()->sync([11, 12, 13, 14, 15]);
+        $role->permissions()->sync([11, 12, 13, 14]);
 
         $user->roles()->attach(1);
     }

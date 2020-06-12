@@ -32,6 +32,7 @@ class CreateFamiliesTable extends Migration
             $table->float('lon', 10, 6)->nullable();
             $table->string('contador_agua')->nullable();
             $table->string('contador_luz')->nullable();
+            $table->boolean('despensa')->nullable()->default(false);
             $table->integer('user_id')->nullable()->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
