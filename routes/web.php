@@ -15,17 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('families.index');
-});
-
-Auth::routes();
+// Auth::routes();
+// Authentication Routes...
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::group(['middleware' => ['auth']], function () {
+
     Route::resource('users', 'UserController');
     Route::resource('roles', 'RoleController');
     Route::view('admin', 'admin.dashboard.index')->name('admin.dash');
 
-
     Route::resource('families', 'FamilyController');
+
+    Route::get('/home', function () {
+        return view('families.index');
+    });
 });
